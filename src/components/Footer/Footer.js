@@ -1,8 +1,7 @@
 import React from 'react';
 
-const Footer = () => (<div>
-	<p>address</p>
-	<p>phone number</p>
+const Footer = ({ number }) => (<div>
+	<p>number of cases need to finish: { number }</p>
 </div>);
 
 export default Footer;

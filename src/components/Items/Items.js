@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Items = () => (<span>text</span>);
+const Items = ({ mustDo}) => (<span> {mustDo} </span>);
 
 export default Items;
