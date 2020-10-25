@@ -3,11 +3,11 @@
 	width: 400px;
 }
 
-.main__title {
+.title {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 30px;	
 }
 
-.main__text {
+.text {
 	color: red;
 }
