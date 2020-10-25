@@ -8,13 +8,16 @@ import styles from './App.module.css';
 const App = () => {
 	const items = [
 		{
-			value: 'to do first'
+			value: 'to do first',
+			isDone: false
 		},
 		{
-			value: 'to do second'
+			value: 'to do second',
+			isDone: true
 		},
 		{
-			value: 'to do third'
+			value: 'to do third',
+			isDone: false
 		}
 	];
 	
