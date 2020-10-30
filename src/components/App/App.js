@@ -3,7 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
-import Button from '@material-ui/core/Button';
+
 
 
 const App = () => {
@@ -25,16 +25,12 @@ const App = () => {
 
 	return (
 	<div className={styles.main}>
-		<h1 className={styles.title}>Hello!!!</h1>
-		<p className={styles.text}>text text text</p>
-		<p><img src="" alt="pic"></img></p>
+		<h1 className={styles.title}>To do list:</h1>
 		<InputItem />
 		<ItemList items={items} />
-		<Footer number={10} />
-		<Button variant="contained" color="primary" href="#contained-buttons">
-        Link
-      	</Button>
-    </div>);
+		
+		<Footer number={2} />
+	</div>);
 }
 
 export default App;

@@ -5,3 +5,8 @@
 .done {
 	color: red;
 }
+
+.item,
+.done:hover {
+	
+}

@@ -1,13 +1,11 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import styles from './InputItem.module.css';
 
-const InputItem = () => (<div>
-	<TextField
-        id="outlined-helperText"
-        label="Helper text"
-        defaultValue="Default Value"
-        helperText="Some important text"
-        variant="outlined"
+const InputItem = () => (<div className={styles.input}>
+	<TextField className={styles.textfield}
+     id="standard-basic"
+     label="Add an item" 
     />
 </div>);
 
