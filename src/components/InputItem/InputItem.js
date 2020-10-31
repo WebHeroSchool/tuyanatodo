@@ -1,5 +1,12 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import styles from './InputItem.module.css';
 
-const InputItem = () => (<h3>List of Items</h3>);
+const InputItem = () => (<div className={styles.input}>
+	<TextField className={styles.textfield}
+     id="standard-basic"
+     label="Add an item" 
+    />
+</div>);
 
 export default InputItem;

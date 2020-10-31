@@ -3,6 +3,8 @@ import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const App = () => {
@@ -24,12 +26,12 @@ const App = () => {
 
 	return (
 	<div className={styles.main}>
-		<h1 className={styles.title}>Hello!!!</h1>
-		<p className={styles.text}>text text text</p>
-		<img src="" alt="pic"></img>
+		<Typography variant="h3" gutterBottom>
+        To do list:
+      	</Typography>
 		<InputItem />
 		<ItemList items={items} />
-		<Footer number={10} />
+		<Footer number={2} />
 	</div>);
 }
 

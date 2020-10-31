@@ -1,13 +1,5 @@
 .main {
 	margin: auto;
 	width: 400px;
-}
-
-.title {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 30px;	
-}
-
-.text {
-	color: red;
+	border: 2px solid black;
 }
