@@ -3,14 +3,3 @@
 	width: 400px;
 	border: 2px solid black;
 }
-
-
-.title {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 30px;	
-	font-weight: bold;
-}
-
-.text {
-	color: red;
-}

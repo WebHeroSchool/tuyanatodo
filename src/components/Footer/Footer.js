@@ -1,12 +1,16 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const Footer = ({ number }) => (<div className={styles.footer}>
-	<p className={styles.text}> { number } items left</p>
-	<p className={styles.text}>All</p>
-	<p className={styles.text}>Active</p>
-	<p className={styles.text}>Completed</p>
-	<p className={styles.text}>Clear completed</p>
+	<ButtonGroup size="small" aria-label="small outlined button group">
+        <Button className={styles.text}>{ number } items left</Button>
+        <Button className={styles.text}>All</Button>
+        <Button className={styles.text}>Active</Button>
+        <Button className={styles.text}>Completed</Button>
+        <Button className={styles.text}>Clear completed</Button>
+    </ButtonGroup>
 </div>);
 
 export default Footer;
