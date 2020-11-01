@@ -7,32 +7,34 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const App = () => {
-	const items = [
-		{
-			value: 'to do first',
-			isDone: false
-		},
-		{
-			value: 'to do second',
-			isDone: true
-		},
-		{
-			value: 'to do third',
-			isDone: false
-		}
-	];
+class App extends React.Component {
+	render () {
+		const items = [
+			{
+				value: 'to do first',
+				isDone: false
+			},
+			{
+				value: 'to do second',
+				isDone: true
+			},
+			{
+				value: 'to do third',
+				isDone: false
+			}
+		];
 	
 
-	return (
-	<div className={styles.main}>
-		<Typography variant="h3" gutterBottom>
-        To do list:
-      	</Typography>
-		<InputItem />
-		<ItemList items={items} />
-		<Footer number={2} />
-	</div>);
+		return (
+		<div className={styles.main}>
+			<Typography variant="h3" gutterBottom>
+	        To do list:
+	      	</Typography>
+			<InputItem />
+			<ItemList items={items} />
+			<Footer number={2} />
+		</div>);
+	}	
 }
 
 export default App;
