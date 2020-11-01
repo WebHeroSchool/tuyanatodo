@@ -8,8 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 class App extends React.Component {
-	render () {
-		const items = [
+	state = {
+		items: [
 			{
 				value: 'to do first',
 				isDone: false
@@ -22,18 +22,18 @@ class App extends React.Component {
 				value: 'to do third',
 				isDone: false
 			}
-		];
-	
-
+		]
+	};
+	render () {
 		return (
-		<div className={styles.main}>
-			<Typography variant="h3" gutterBottom>
-	        To do list:
-	      	</Typography>
-			<InputItem />
-			<ItemList items={items} />
-			<Footer number={2} />
-		</div>);
+			<div className={styles.main}>
+				<Typography variant="h3" gutterBottom>
+		        To do list:
+		      	</Typography>
+				<InputItem />
+				<ItemList items={this.state.items} />
+				<Footer number={2} />
+			</div>);
 	}	
 }
 
