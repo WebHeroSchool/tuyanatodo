@@ -24,6 +24,9 @@ class App extends React.Component {
 			}
 		]
 	};
+
+	onClickDone = isDone => console.log(isDone);
+
 	render () {
 		return (
 			<div className={styles.main}>
@@ -31,7 +34,7 @@ class App extends React.Component {
 		        To do list:
 		      	</Typography>
 				<InputItem />
-				<ItemList items={this.state.items} />
+				<ItemList items={this.state.items} onClickDone={this.onClickDone} />
 				<Footer number={2} />
 			</div>);
 	}	
