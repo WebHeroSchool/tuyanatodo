@@ -10,7 +10,12 @@ class ItemList extends React.Component {
 		return (
 			<ol className={styles.list}>
 				{items.map(item => 
-					<li className={styles.item} key={item.value}><Item value={item.value}isDone={item.isDone} onClickDone={onClickDone} />
+					<li className={styles.item} key={item.value}>
+						<Item 
+							value={item.value}
+							isDone={item.isDone} 
+							onClickDone={onClickDone}
+							id={item.id} />
 						<IconButton className={styles.delete} edge="end" aria-label="delete">
 				            <DeleteIcon className={styles.delete}/>
 				        </IconButton>
