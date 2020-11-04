@@ -4,7 +4,7 @@ import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+
 
 
 class App extends React.Component {
@@ -13,17 +13,17 @@ class App extends React.Component {
 			{
 				value: 'to do first',
 				isDone: false,
-				id: 1
+				id: 1,
 			},
 			{
 				value: 'to do second',
 				isDone: true,
-				id: 2
+				id: 2,
 			},
 			{
 				value: 'to do third',
 				isDone: false,
-				id: 3
+				id: 3,
 			}
 		]
 	};
@@ -39,6 +39,12 @@ class App extends React.Component {
 		this.setState({ items: newItemList});
 	};
 
+	onClickDelete = id => {
+		const deletedItemList = this.state.items.filter(item => item.id !== id);
+		this.setState({items: deletedItemList});
+
+	};
+
 	render () {
 		return (
 			<div className={styles.main}>
@@ -46,7 +52,7 @@ class App extends React.Component {
 		        To do list:
 		      	</Typography>
 				<InputItem />
-				<ItemList items={this.state.items} onClickDone={this.onClickDone} />
+				<ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
 				<Footer number={2} />
 			</div>);
 	}	

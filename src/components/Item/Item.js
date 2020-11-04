@@ -4,14 +4,18 @@ import classnames from 'classnames';
 
 class Item extends React.Component {
 	render() {
-		const { value, isDone, onClickDone, id } = this.props;
+		const { value, isDone, onClickDone, id, onClickDelete} = this.props;
 		return (
-			<span className={
-				classnames({
-					[styles.item]: true,
-					[styles.done]: isDone
-				})
-			} onClick={() => onClickDone(id)}> {value} </span>
+			<span 
+				className={
+					classnames({
+						[styles.item]: true,
+						[styles.done]: isDone
+					})
+				} 	
+				onClick={() => onClickDone(id)}
+				onClickDelete={onClickDelete}
+				>  {value} </span>
 		);
 	}
 }
