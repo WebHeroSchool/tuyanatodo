@@ -15,15 +15,17 @@ class ItemList extends React.Component {
 							value={item.value}
 							isDone={item.isDone} 
 							onClickDone={onClickDone}
-							id={item.id} />
+							id={item.id} 
+							/>
 						<IconButton 
 							className={styles.delete} 
 							edge="end" 
 							aria-label="delete"
 							onClick={() => onClickDelete(id)}
 							>
-				            <DeleteIcon  />
-				        </IconButton>
+				    			<DeleteIcon  />
+						</IconButton>
+							
 					</li>)}
 			</ol>
 		);
