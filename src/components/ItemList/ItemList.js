@@ -21,9 +21,9 @@ class ItemList extends React.Component {
 							className={styles.delete} 
 							edge="end" 
 							aria-label="delete"
-							onClick={() => onClickDelete(id)}
+							
 							>
-				    			<DeleteIcon  />
+				    			<DeleteIcon onClick={() => onClickDelete(item.id)} />
 						</IconButton>
 							
 					</li>)}

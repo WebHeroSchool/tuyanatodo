@@ -14,12 +14,7 @@ class Item extends React.Component {
 						[styles.done]: isDone
 					})
 				} 	
-				onClick={() => {
-					onClickDone(id);
-					console.log(id);
-					onClickDelete(id);
-
-				}}
+				onClick={() => onClickDone(id)}
 				
 				
 				>  {value} </span>
