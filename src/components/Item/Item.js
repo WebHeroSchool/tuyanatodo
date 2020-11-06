@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 class Item extends React.Component {
 	render() {
-		const { value, isDone, onClickDone, id, onClickDelete} = this.props;
+		const { value, isDone, onClickDone, id} = this.props;
 		return (
 			<span 
 				className={
@@ -15,8 +15,6 @@ class Item extends React.Component {
 					})
 				} 	
 				onClick={() => onClickDone(id)}
-				
-				
 				>  {value} </span>
 
 			

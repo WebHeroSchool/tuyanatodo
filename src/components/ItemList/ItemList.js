@@ -20,9 +20,7 @@ class ItemList extends React.Component {
 						<IconButton 
 							className={styles.delete} 
 							edge="end" 
-							aria-label="delete"
-							
-							>
+							aria-label="delete">
 				    			<DeleteIcon onClick={() => onClickDelete(item.id)} />
 						</IconButton>
 							
