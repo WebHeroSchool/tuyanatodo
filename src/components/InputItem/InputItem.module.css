@@ -1,8 +1,11 @@
 .textfield {
 	width: 390px;
-	padding-left: 5px;
 }
 
 .input {
 	padding-left: 5px;
+}
+
+.button {
+	width:390px;
 }

@@ -45,13 +45,26 @@ class App extends React.Component {
 
 	};
 
+	onClickAddNew = value => this.setState(state => ({
+		items: [
+			...state.items,
+			{
+				value,
+				isDone: false,
+				id: state.count + 1
+			}
+		],
+		count: state.count + 1
+		
+	}))
+
 	render () {
 		return (
 			<div className={styles.main}>
 				<Typography variant="h3" gutterBottom>
 		        To do list:
 		      	</Typography>
-				<InputItem />
+				<InputItem onClickAddNew={this.onClickAddNew}/>
 				<ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
 				<Footer number={2} />
 			</div>);
