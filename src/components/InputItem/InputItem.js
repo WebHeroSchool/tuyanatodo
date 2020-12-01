@@ -6,14 +6,19 @@ import Button from '@material-ui/core/Button';
 
 class InputItem extends React.Component {
 	state = {
-		inputValue: ''
+		inputValue: '',
+		onError: false
 	};
 
 onButtonClick = () => {
 	this.setState ({
 		inputValue: ''
 	});
-	this.props.onClickAddNew(this.state.inputValue);
+	if (this.state.inputValue == '') {
+	this.setState({onError: true});
+	} else {
+		this.props.onClickAddNew(this.state.inputValue);
+	};
 
 }
 
@@ -22,6 +27,7 @@ onButtonClick = () => {
 		return (
 		<div className={styles.input}>
 			<TextField 
+				error
 				className={styles.textfield}
 			    id="standard-basic"
 			    label="New item" 
