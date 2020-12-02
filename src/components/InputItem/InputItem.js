@@ -7,7 +7,8 @@ import Button from '@material-ui/core/Button';
 class InputItem extends React.Component {
 	state = {
 		inputValue: '',
-		onError: false
+		onError: false,
+		helperText: ''
 	};
 
 onButtonClick = () => {
@@ -15,8 +16,9 @@ onButtonClick = () => {
 		inputValue: ''
 	});
 	if (this.state.inputValue == '') {
-	this.setState({onError: true});
+	this.setState({ onError: true, helperText: 'Incorrect entry' });
 	} else {
+		this .setState({helperText: ''});
 		this.props.onClickAddNew(this.state.inputValue);
 	};
 
@@ -27,12 +29,13 @@ onButtonClick = () => {
 		return (
 		<div className={styles.input}>
 			<TextField 
-				error
+				onError={this.state.onError}
+				helperText={this.state.helperText}
 				className={styles.textfield}
 			    id="standard-basic"
 			    label="New item" 
 			    value={this.state.inputValue}
-			    onChange={event => this.setState({inputValue: event.target.value})}
+			    onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
 		    />
 		    <Button 
 		    	className={styles.button}
