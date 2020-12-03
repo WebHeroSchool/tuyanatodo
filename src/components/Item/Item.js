@@ -22,4 +22,9 @@ class Item extends React.Component {
 	}
 }
 
+Item.defaultProps = {
+	value: 'nothing to do',
+	isDone: false
+};
+
 export default Item;

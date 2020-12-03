@@ -67,7 +67,7 @@ class App extends React.Component {
 		      	</Typography>
 				<InputItem onClickAddNew={this.onClickAddNew}/>
 				<ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
-				<Footer number={2} />
+				<Footer count={this.state.count} />
 			</div>);
 	}	
 }
