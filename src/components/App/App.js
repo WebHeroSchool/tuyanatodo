@@ -4,7 +4,7 @@ import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 import Typography from '@material-ui/core/Typography';
-
+import PropTypes from 'prop-types';
 
 
 class App extends React.Component {
@@ -71,5 +71,16 @@ class App extends React.Component {
 			</div>);
 	}	
 }
+
+App.propTypes ={
+	value: propTypes.string,
+	isDone: propTypes.bool,
+	id: propTypes.number,
+	count: propTypes.number,
+	onClickDone: propTypes.func,
+	onClickDelete: propTypes.func,
+	onClickAddNew: propTypes.func
+}
+
 
 export default App;
