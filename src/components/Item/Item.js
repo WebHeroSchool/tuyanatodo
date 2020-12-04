@@ -4,6 +4,17 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 class Item extends React.Component {
+	componentDidMount() {
+		console.log('componentDidMount');
+	}
+
+	componentDidUpdate() {
+		console.log('componentDidUpdate');
+	}
+
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
+	}
 	render() {
 		const { value, isDone, onClickDone, id} = this.props;
 		return (
@@ -28,10 +39,10 @@ Item.defaultProps = {
 };
 
 Item.propTypes ={
-	value: propTypes.string,
-	isDone: propTypes.bool,
-	id: propTypes.number,
-	count: propTypes.number
+	value: PropTypes.string,
+	isDone: PropTypes.bool,
+	id: PropTypes.number,
+	count: PropTypes.number
 }
 
 export default Item;

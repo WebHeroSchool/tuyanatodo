@@ -72,14 +72,14 @@ class App extends React.Component {
 	}	
 }
 
-App.propTypes ={
-	value: propTypes.string,
-	isDone: propTypes.bool,
-	id: propTypes.number,
-	count: propTypes.number,
-	onClickDone: propTypes.func,
-	onClickDelete: propTypes.func,
-	onClickAddNew: propTypes.func
+App.propTypes = {
+	value: PropTypes.string,
+	isDone: PropTypes.bool,
+	id: PropTypes.number,
+	count: PropTypes.number,
+	onClickDone: PropTypes.func,
+	onClickDelete: PropTypes.func,
+	onClickAddNew: PropTypes.func
 }
 
 

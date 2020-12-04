@@ -24,6 +24,18 @@ onButtonClick = () => {
 
 }
 
+	componentDidMount() {
+		console.log('componentDidMount');
+	}
+
+	componentDidUpdate() {
+		console.log('componentDidUpdate');
+	}
+
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
+	}
+
 	render() {
 		const { onClickAddNew } = this.props;
 		return (
@@ -50,10 +62,9 @@ onButtonClick = () => {
 }
 
 InputItem.propTypes = {
-	inputValue: propTypes.string,
-	onError: propTypes.bool,
-	helperText: propTypes.string,
-	onButtonClick: propTypes.func
+	inputValue: PropTypes.string,
+	helperText: PropTypes.string,
+	onButtonClick: PropTypes.func
 };
 
 export default InputItem;
