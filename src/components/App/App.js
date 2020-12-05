@@ -4,7 +4,7 @@ import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 
 class App extends React.Component {
@@ -13,19 +13,20 @@ class App extends React.Component {
 			{
 				value: 'to do first',
 				isDone: false,
-				id: 1
+				id: 1,
 			},
 			{
 				value: 'to do second',
 				isDone: true,
-				id: 2
+				id: 2,
 			},
 			{
 				value: 'to do third',
 				isDone: false,
-				id: 3
+				id: 3,
 			}
-		]
+		],
+		count: 3
 	};
 
 	onClickDone = id => {
@@ -39,17 +40,47 @@ class App extends React.Component {
 		this.setState({ items: newItemList});
 	};
 
+	onClickDelete = id => {
+		const deletedItemList = this.state.items.filter(item => item.id !== id);
+		this.setState({items: deletedItemList});
+
+	};
+
+	onClickAddNew = value => this.setState(state => ({
+		items: [
+			...state.items,
+			{
+				value,
+				isDone: false,
+				id: state.count + 1
+			}
+		],
+		count: state.count + 1
+		
+	}))
+
 	render () {
 		return (
 			<div className={styles.main}>
 				<Typography variant="h3" gutterBottom>
 		        To do list:
 		      	</Typography>
-				<InputItem />
-				<ItemList items={this.state.items} onClickDone={this.onClickDone} />
-				<Footer number={2} />
+				<InputItem onClickAddNew={this.onClickAddNew}/>
+				<ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
+				<Footer count={this.state.count} />
 			</div>);
 	}	
 }
+
+App.propTypes = {
+	value: PropTypes.string,
+	isDone: PropTypes.bool,
+	id: PropTypes.number,
+	count: PropTypes.number,
+	onClickDone: PropTypes.func,
+	onClickDelete: PropTypes.func,
+	onClickAddNew: PropTypes.func
+}
+
 
 export default App;

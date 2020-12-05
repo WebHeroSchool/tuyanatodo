@@ -6,19 +6,24 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 class ItemList extends React.Component {
 	render() {
-		const { items, onClickDone } = this.props;
+		const { items, onClickDone, id, onClickDelete } = this.props;
 		return (
 			<ol className={styles.list}>
 				{items.map(item => 
-					<li className={styles.item} key={item.value}>
+					<li className={styles.item} key={item.id}>
 						<Item 
 							value={item.value}
 							isDone={item.isDone} 
 							onClickDone={onClickDone}
-							id={item.id} />
-						<IconButton className={styles.delete} edge="end" aria-label="delete">
-				            <DeleteIcon className={styles.delete}/>
-				        </IconButton>
+							id={item.id} 
+							/>
+						<IconButton 
+							className={styles.delete} 
+							edge="end" 
+							aria-label="delete">
+				    			<DeleteIcon onClick={() => onClickDelete(item.id)} />
+						</IconButton>
+							
 					</li>)}
 			</ol>
 		);
