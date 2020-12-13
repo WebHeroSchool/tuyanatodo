@@ -1,5 +1,18 @@
-.main {
-	margin: auto;
-	width: 400px;
-	border: 2px solid black;
+.link {
+	text-decoration: none;
+	color: black;
+}
+
+.block {
+	text-align: center;
+}
+
+.wrap {
+	display: inline-flex;
+	justify-content: center;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
 }
