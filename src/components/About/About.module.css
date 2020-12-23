@@ -1,9 +1,31 @@
-.title {
-	text-align: center;
+.text {
+	text-align: left;
 	font-size: 25px;
+	padding-left: 15px;
+}
+
+.text_login {
+	text-align: left;
+	padding-left: 15px;
+}
+
+.text_bio {
+	text-align: left;
+	padding-left: 15px;
 }
 
 .main {
 	margin: auto;
 	width: 400px;
 }
+
+.item {
+	text-align: left;
+	cursor: pointer;	
+}
+
+.link {
+	color: black;
+	text-decoration: none;
+}
+
