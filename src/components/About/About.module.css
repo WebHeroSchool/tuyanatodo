@@ -1,22 +1,35 @@
 .text {
 	text-align: left;
 	font-size: 25px;
-	padding-left: 15px;
 }
 
 .text_login {
 	text-align: left;
-	padding-left: 15px;
 }
 
 .text_bio {
 	text-align: left;
-	padding-left: 15px;
 }
 
 .main {
 	margin: auto;
-	width: 400px;
+	width: 800px;
+}
+
+.main__info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height: 230px;
+
+}
+
+.info {
+	width: 500px;
+}
+
+.name {
+	text-align: left;
 }
 
 .item {
@@ -29,3 +42,13 @@
 	text-decoration: none;
 }
 
+.img {
+	width: 200px;
+	height: 210px;
+	border-radius: 15px;
+	padding-top: 5px;
+}
+
+.block__info {
+	margin-bottom: 10px;
+}

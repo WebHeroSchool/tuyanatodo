@@ -5,7 +5,8 @@ import Footer from '../Footer/Footer';
 import styles from './Todo.module.css';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-
+import Fab from '@material-ui/core/Fab';
+import Card from '@material-ui/core/Card';
 
 const Todo =() => {
 	const initialState = {
@@ -76,14 +77,42 @@ const Todo =() => {
 	};
 
 		return (
-			<div className={styles.main}>
-				<Typography variant="h3" gutterBottom>
-		        To do list:
-		      	</Typography>
-				<InputItem onClickAddNew={onClickAddNew}/>
-				<ItemList items={items} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
-				<Footer count={count} />
+			<div className={styles.wrap}>
+				<Card>
+					<div className={styles.main}>
+						<h3 className={styles.title}>Tasks:</h3>
+						
+						<Fab
+         					variant="extended"
+          					size="small"
+          					color="primary"
+          					aria-label="add"
+          					>
+							All tasks 
+        				</Fab>
+        				<Fab
+         					variant="extended"
+          					size="small"
+          					color="primary"
+          					aria-label="add"
+          					>
+							{ count } items left
+        				</Fab>
+        				<Fab
+         					variant="extended"
+          					size="small"
+          					color="primary"
+          					aria-label="add"
+          					>
+							Done
+        				</Fab>
+        				<ItemList items={items} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
+						<InputItem onClickAddNew={onClickAddNew}/>
+						<Footer count={count} />
+					</div>
+				</Card>	
 			</div>);
+			
 		
 }
 

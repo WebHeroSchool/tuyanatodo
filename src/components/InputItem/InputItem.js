@@ -3,6 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import styles from './InputItem.module.css';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 class InputItem extends React.Component {
 	state = {
@@ -34,17 +36,16 @@ onButtonClick = () => {
 				helperText={this.state.helperText}
 				className={styles.textfield}
 			    id="standard-basic"
-			    label="New item" 
+			    label="New task" 
 			    value={this.state.inputValue}
 			    onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
 		    />
-		    <Button 
-		    	className={styles.button}
-			    variant="contained" 
-			    color="secondary"
-			    onClick={this.onButtonClick}>
-       		Add new item
-      		</Button>
+		    <Fab 
+		    	color="primary" 
+		    	aria-label="add"
+		    	onClick={this.onButtonClick}>
+        		<AddIcon />
+      		</Fab>
 		</div>);
 		
 	}

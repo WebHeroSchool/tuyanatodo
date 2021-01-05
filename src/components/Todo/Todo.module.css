@@ -1,5 +1,9 @@
-.main {
+.wrap {
 	margin: auto;
-	width: 400px;
-	border: 2px solid black;
+	width: 800px;
 }
+
+.title {
+	text-align: left;
+}
+

@@ -2,6 +2,7 @@ import React from 'react';
 import Item from '../Item/Item';
 import styles from './ItemList.module.css';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 class ItemList extends React.Component {
@@ -17,14 +18,17 @@ class ItemList extends React.Component {
 							onClickDone={onClickDone}
 							id={item.id} 
 							/>
-						<IconButton 
-							className={styles.delete} 
-							edge="end" 
-							aria-label="delete">
-				    			<DeleteIcon onClick={() => onClickDelete(item.id)} />
-						</IconButton>
-							
-					</li>)}
+						<Button
+       						variant="contained"
+    						color="secondary"
+        					startIcon={<DeleteIcon />}
+        					className={styles.button}
+        					onClick={() => onClickDelete(item.id)}>
+        					Delete
+     					</Button>	
+					</li>
+						
+					)}
 			</ol>
 		);
 	}

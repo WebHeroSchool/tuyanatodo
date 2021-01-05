@@ -9,13 +9,7 @@ class Footer extends React.Component {
 		const { count } = this.props;
 		return (
 			<div className={styles.footer}>
-				<ButtonGroup size="small" aria-label="small outlined button group">
-				    <Button className={styles.text}>{ count } items left</Button>
-				    <Button className={styles.text}>All</Button>
-				    <Button className={styles.text}>Active</Button>
-				    <Button className={styles.text}>Completed</Button>
-				    <Button className={styles.text}>Clear completed</Button>
-				</ButtonGroup>
+				
 			</div>
 		);
 	}
