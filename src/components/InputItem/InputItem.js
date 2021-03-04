@@ -38,7 +38,7 @@ onButtonClick = () => {
 			    id="standard-basic"
 			    label="New task" 
 			    value={this.state.inputValue}
-			    onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
+			    onChange={event => this.setState({inputValue: event.target.value})}
 		    />
 		    <Fab 
 		    	color="primary" 

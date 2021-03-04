@@ -2,25 +2,46 @@ import React from 'react';
 import styles from './Footer.module.css';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Fab from '@material-ui/core/Fab';
 import PropTypes from 'prop-types';
 
 class Footer extends React.Component {
 	render() {
-		const { count } = this.props;
+		const { count, allActive, allDone, onClickFilter } = this.props;
 		return (
 			<div className={styles.footer}>
-				
+				<Fab
+		         	variant="extended"
+		          	size="small"
+		          	color="primary"
+		          	aria-label="add"
+		          	onClick={() => onClickFilter('all')}
+		          	>
+					all { count } 
+		        </Fab>
+		        <Fab
+		        	variant="extended"
+		          	size="small"
+		          	color="primary"
+		          	aria-label="add"
+		          	onClick={() => onClickFilter('active')}
+		          	>
+					active { allActive }
+		        </Fab>
+		        <Fab
+		         	variant="extended"
+		          	size="small"
+		          	color="primary"
+		          	aria-label="add"
+		          	onClick={() => onClickFilter('done')}
+		          	>
+					done { allDone }
+		        </Fab>
 			</div>
 		);
 	}
 }
 
-Footer.defaultProps = {
-	count: 0
-};
 
-Footer.propTypes = {
-	count: PropTypes.number
-};
 
 export default Footer;

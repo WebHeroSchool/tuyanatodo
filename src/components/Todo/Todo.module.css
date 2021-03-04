@@ -3,7 +3,23 @@
 	width: 800px;
 }
 
+.main {
+	padding-left: 10px;
+	padding-right: 15px;
+}
+
+.line {
+	display: flex;
+	justify-content: space-between;
+}
+
 .title {
 	text-align: left;
+	margin-top: 0;
+	padding-top: 15px;
+}
+
+.report {
+	padding-top: 15px;
 }
 
