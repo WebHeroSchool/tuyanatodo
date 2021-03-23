@@ -7,6 +7,7 @@ import Todo from '../Todo/Todo';
 import About from '../About/About';
 import Fab from '@material-ui/core/Fab';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import school from './img/school.png';
 
 
 
@@ -19,8 +20,11 @@ const App =() =>
 				<Fab variant="extended"><Link to='/todo' className={styles.link}>Tasks</Link></Fab>
 				</div>
 				
-					<Route path='/' exact component={About} />
-					<Route path='/todo' component={Todo} />
+				<Route path='/' exact component={About} />
+				<Route path='/todo' component={Todo} />
+			</div>
+			<div>
+				<p><img src={ school } alt='webhero'></img></p>			
 			</div>
 		</div>
 	</Router>);

@@ -160,3 +160,57 @@
 	display: inline-flex;
 	opacity: 0.5;
 }
+
+@media screen and (min-width: 530px) and (max-width: 850px) {
+	.main {
+		width: 500px;
+	}
+
+	.social {
+		text-align: left;
+	}
+
+	.img {
+		width: 150px;
+		height: 150px;
+	}
+
+	.info {
+		width: 250px;
+	}
+}
+
+@media screen and (min-width: 300px) and (max-width: 529px) {
+	.main {
+		width: 270px;
+	}
+
+	.social {
+		text-align: left;
+	}
+
+	.img {
+		width: 100px;
+		height: 105px;
+	}
+
+	.info {
+		width: 150px;
+		font-size: 11px;
+	}
+
+	.item {
+		font-size: 11px;
+		height: 60px;
+
+	}
+
+	.repos {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.list {
+		padding-inline-start: 15px;
+	}
+}

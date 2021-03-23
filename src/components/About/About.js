@@ -12,6 +12,8 @@ import phone from './img/telephone.png';
 import star from './img/star.png';
 import fork from './img/forks.png';
 import classnames from 'classnames';
+import Fab from '@material-ui/core/Fab';
+
 
 const octokit = new Octokit();
 
@@ -23,7 +25,9 @@ class About extends React.Component {
 		login: '',
 		bio: '',
 		myAvatar: '',
-		fetchFailure: false
+		fetchFailure: false,
+		firstPage: 0,
+		nextPage: 2
 	}
 
 	componentDidMount () {
@@ -57,8 +61,22 @@ class About extends React.Component {
 				})
 	}
 
+	onClickNext = () => {
+		this.setState({
+			firstPage: this.state.firstPage + 2,
+			nextPage: this.state.nextPage + 2
+		})
+	};
+
+	onClickBack = () => {
+		this.setState({
+			firstPage: this.state.firstPage - 2,
+			nextPage: this.state.nextPage - 2
+		})
+	};
+
 	render () {
-		const { isLoading, repoList, userName, login, bio, fetchFailure, myAvatar } = this.state;
+		const { isLoading, repoList, userName, login, bio, fetchFailure, myAvatar, firstPage, nextPage } = this.state;
 		return (
 			<div className={styles.main}>
 				<div className={styles.block__info}>
@@ -93,7 +111,7 @@ class About extends React.Component {
 					<div className={styles.repos}>
 						<p className={styles.text}>{ isLoading ? <CircularProgress/> : 'My repositories:' }</p>
 						{!isLoading && <ol className={styles.list}>
-							{repoList.map(repo =>(<li  className={styles.item} key={repo.id}>
+							{repoList.slice(firstPage, nextPage).map(repo =>(<li  className={styles.item} key={repo.id}>
 									<p className={styles.repolink}><a href={repo.html_url} className={styles.link}>{repo.name}</a></p>
 									<div className={styles.add__info}>
 										<p className={
@@ -114,6 +132,28 @@ class About extends React.Component {
 									</div>
 								</li>))}
 						</ol>}
+						<div>
+							<Fab
+		         				variant="extended"
+		          				size="small"
+		          				color="primary"
+		          				aria-label="add"
+		          				disabled={firstPage===0}
+		          				onClick={() => this.onClickBack()}
+		          			>
+								Back 
+		        			</Fab>
+		        			<Fab
+		        				variant="extended"
+		          				size="small"
+		          				color="primary"
+		          				aria-label="add"
+		          				disabled={repoList.length - nextPage <= 0}
+		          				onClick={() => this.onClickNext()}
+		          			>
+								Next
+		        			</Fab>
+						</div>
 					</div>
 				</Card>	
 				<Card className={styles.myprojects}>
@@ -122,6 +162,7 @@ class About extends React.Component {
 						{!isLoading && <ol>
 							<li className={styles.project}><a className={styles.project__link} href='https://tsidenova.github.io/'>HTML</a></li>
 							<li className={styles.project}><a className={styles.project__link} href='https://tsidenova.github.io/tuyanafinalJS/'>JavaScript(game)</a></li>
+							<li className={styles.project}><a className={styles.project__link} href='http://tuyanatodo.vercel.app/'>React app</a></li>
 						</ol>}
 					</div>
 				</Card>

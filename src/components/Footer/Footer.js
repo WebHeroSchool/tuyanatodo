@@ -5,9 +5,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Fab from '@material-ui/core/Fab';
 import PropTypes from 'prop-types';
 
-class Footer extends React.Component {
-	render() {
-		const { count, allActive, allDone, onClickFilter } = this.props;
+const Footer = ({ count, allActive, allDone, onClickFilter }) => {
 		return (
 			<div className={styles.footer}>
 				<Fab
@@ -39,7 +37,7 @@ class Footer extends React.Component {
 		        </Fab>
 			</div>
 		);
-	}
+	
 }
 
 

@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 
 import Card from '@material-ui/core/Card';
 
-const Todo =() => {
+const Todo = () => {
 	const initialState = {
-		items: [
+		items: [			
 			{
 				value: 'to do first',
 				isDone: false,
@@ -73,10 +73,10 @@ const Todo =() => {
 
 	switch (filter) {
 		case 'done':
-			itemsFilter = items.filter(item => ! item.isDone);
+			itemsFilter = items.filter(item => item.isDone);
 			break;
 		case 'active':
-			itemsFilter = items.filter(item => item.isDone);
+			itemsFilter = items.filter(item => !item.isDone);
 			break;
 		default:
 			itemsFilter = items;		
@@ -87,8 +87,8 @@ const Todo =() => {
 				<Card>
 					<div className={styles.main}>
 						<h3 className={styles.title}>TASKS:</h3>
-						<ItemList items={items} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
-						<InputItem onClickAddNew={onClickAddNew}/>
+						<ItemList items={itemsFilter} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
+						<InputItem items={items} onClickAddNew={onClickAddNew}/>
 						<Footer 
 						filtered={filter}
 						onClickFilter={onClickFilter} 
