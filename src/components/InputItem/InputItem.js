@@ -19,10 +19,10 @@ onButtonClick = () => {
 	});
 	if (this.state.inputValue === '') {
 	this.setState({ onError: true, helperText: 'Incorrect entry' });
-	} else if (this.props.items.map(item => item.value === this.state.inputValue)) {
+	} else if (this.props.items.some(item => item.value === this.state.inputValue)) {
 		this.setState ({ onError: true, helperText: 'Task already exists'});
 	} else {
-		this .setState({helperText: ''});
+		this.setState({helperText: ''});
 		this.props.onClickAddNew(this.state.inputValue);
 	};
 
