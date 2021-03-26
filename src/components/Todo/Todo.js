@@ -6,10 +6,11 @@ import styles from './Todo.module.css';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 
+import Card from '@material-ui/core/Card';
 
-const Todo =() => {
+const Todo = () => {
 	const initialState = {
-		items: [
+		items: [			
 			{
 				value: 'to do first',
 				isDone: false,
@@ -31,20 +32,10 @@ const Todo =() => {
 
 	const [items, setItems] = useState(initialState.items);
 	const [count, setCount] = useState(initialState.count);
+	const [filter, setFilter] = useState('all');
+	let itemsFilter;
 
-	useEffect(() => {
-		console.log("changed count");
-	}, [count]);
-
-	useEffect(() => {
-		console.log("update");
-	});
-
-	useEffect(() => {
-		console.log("mount");
-	}, []);
-
-
+	
 	const onClickDone = id => {
 		const newItemList = items.map(item =>{
 			const newItem = { ...item};
@@ -75,15 +66,40 @@ const Todo =() => {
 		setCount((count) => count + 1);
 	};
 
+	const allActive = (items.filter((item) => item.isDone === false)).length;
+	const allDone = (items.filter((item) => item.isDone === true)).length;
+
+	const onClickFilter = filtered => setFilter(filtered);
+
+	switch (filter) {
+		case 'done':
+			itemsFilter = items.filter(item => item.isDone);
+			break;
+		case 'active':
+			itemsFilter = items.filter(item => !item.isDone);
+			break;
+		default:
+			itemsFilter = items;		
+	}
+
 		return (
-			<div className={styles.main}>
-				<Typography variant="h3" gutterBottom>
-		        To do list:
-		      	</Typography>
-				<InputItem onClickAddNew={onClickAddNew}/>
-				<ItemList items={items} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
-				<Footer count={count} />
+			<div className={styles.wrap}>
+				<Card>
+					<div className={styles.main}>
+						<h3 className={styles.title}>TASKS:</h3>
+						<ItemList items={itemsFilter} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
+						<InputItem items={items} onClickAddNew={onClickAddNew}/>
+						<Footer 
+						filtered={filter}
+						onClickFilter={onClickFilter} 
+						count={count}
+						allActive = {allActive}
+						allDone = {allDone}
+						 />
+					</div>
+				</Card>	
 			</div>);
+			
 		
 }
 

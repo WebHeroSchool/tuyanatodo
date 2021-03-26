@@ -2,31 +2,44 @@ import React from 'react';
 import styles from './Footer.module.css';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Fab from '@material-ui/core/Fab';
 import PropTypes from 'prop-types';
 
-class Footer extends React.Component {
-	render() {
-		const { count } = this.props;
+const Footer = ({ count, allActive, allDone, onClickFilter }) => {
 		return (
 			<div className={styles.footer}>
-				<ButtonGroup size="small" aria-label="small outlined button group">
-				    <Button className={styles.text}>{ count } items left</Button>
-				    <Button className={styles.text}>All</Button>
-				    <Button className={styles.text}>Active</Button>
-				    <Button className={styles.text}>Completed</Button>
-				    <Button className={styles.text}>Clear completed</Button>
-				</ButtonGroup>
+				<Fab
+		         	variant="extended"
+		          	size="small"
+		          	color="primary"
+		          	aria-label="add"
+		          	onClick={() => onClickFilter('all')}
+		          	>
+					all { count } 
+		        </Fab>
+		        <Fab
+		        	variant="extended"
+		          	size="small"
+		          	color="primary"
+		          	aria-label="add"
+		          	onClick={() => onClickFilter('active')}
+		          	>
+					active { allActive }
+		        </Fab>
+		        <Fab
+		         	variant="extended"
+		          	size="small"
+		          	color="primary"
+		          	aria-label="add"
+		          	onClick={() => onClickFilter('done')}
+		          	>
+					done { allDone }
+		        </Fab>
 			</div>
 		);
-	}
+	
 }
 
-Footer.defaultProps = {
-	count: 0
-};
 
-Footer.propTypes = {
-	count: PropTypes.number
-};
 
 export default Footer;

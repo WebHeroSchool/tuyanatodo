@@ -3,6 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import styles from './InputItem.module.css';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 class InputItem extends React.Component {
 	state = {
@@ -15,10 +17,12 @@ onButtonClick = () => {
 	this.setState ({
 		inputValue: ''
 	});
-	if (this.state.inputValue == '') {
+	if (this.state.inputValue === '') {
 	this.setState({ onError: true, helperText: 'Incorrect entry' });
+	} else if (this.props.items.some(item => item.value === this.state.inputValue)) {
+		this.setState ({ onError: true, helperText: 'Task already exists'});
 	} else {
-		this .setState({helperText: ''});
+		this.setState({helperText: ''});
 		this.props.onClickAddNew(this.state.inputValue);
 	};
 
@@ -34,17 +38,16 @@ onButtonClick = () => {
 				helperText={this.state.helperText}
 				className={styles.textfield}
 			    id="standard-basic"
-			    label="New item" 
+			    label="New task" 
 			    value={this.state.inputValue}
-			    onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
+			    onChange={event => this.setState({inputValue: event.target.value})}
 		    />
-		    <Button 
-		    	className={styles.button}
-			    variant="contained" 
-			    color="secondary"
-			    onClick={this.onButtonClick}>
-       		Add new item
-      		</Button>
+		    <Fab 
+		    	color="primary" 
+		    	aria-label="add"
+		    	onClick={this.onButtonClick}>
+        		<AddIcon />
+      		</Fab>
 		</div>);
 		
 	}

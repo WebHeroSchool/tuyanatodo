@@ -1,3 +1,7 @@
+body {
+	background-color: #33CCFF;
+}
+
 .link {
 	text-decoration: none;
 	color: black;
@@ -5,14 +9,20 @@
 
 .block {
 	text-align: center;
+
 }
 
 .wrap {
-	display: inline-flex;
+	display: flex;
 	justify-content: center;
+	flex-direction: column;
 }
 
 .menu {
 	display: flex;
 	flex-direction: column;
+}
+
+.button {
+	padding-bottom: 10px;
 }

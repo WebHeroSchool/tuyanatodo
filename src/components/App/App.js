@@ -5,29 +5,27 @@ import MenuList from '@material-ui/core/MenuItem';
 import MenuItem from '@material-ui/core/MenuItem';
 import Todo from '../Todo/Todo';
 import About from '../About/About';
-import Contacts from '../Contacts/Contacts';
+import Fab from '@material-ui/core/Fab';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import school from './img/school.png';
 
 
 
 const App =() => 
 	(<Router>
 		<div className={styles.block}>
-		<div className={styles.wrap}>
-			<Card>
-				<MenuList className={styles.menu}>
-					<p><Link to='/' className={styles.link}><MenuItem>About me</MenuItem></Link></p>
-					<p><Link to='/todo' className={styles.link}><MenuItem>To do list</MenuItem></Link></p>
-					<p><Link to='/contacts' className={styles.link}><MenuItem>Contacts</MenuItem></Link></p>
-				</MenuList>
-			</Card>
-
-			<Card>
+			<div className={styles.wrap}>
+				<div className={styles.button}>
+				<Fab variant="extended"><Link to='/' className={styles.link}>About me</Link></Fab>
+				<Fab variant="extended"><Link to='/todo' className={styles.link}>Tasks</Link></Fab>
+				</div>
+				
 				<Route path='/' exact component={About} />
 				<Route path='/todo' component={Todo} />
-				<Route path='/contacts' component={Contacts} />
-			</Card>
-		</div>
+			</div>
+			<div>
+				<p><img src={ school } alt='webhero'></img></p>			
+			</div>
 		</div>
 	</Router>);
 		
